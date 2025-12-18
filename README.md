@@ -4,7 +4,7 @@
   </a>
 </h1>
 
-<h4 align="center">Developer platform for blockchain apps</h4>
+<h4 align="center">Blockchain developer platform</h4>
 
 <p align="center">
   <a href="https://discord.mimic.fi">
