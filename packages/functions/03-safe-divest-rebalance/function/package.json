@@ -8,7 +8,7 @@
     "build": "yarn codegen && yarn compile",
     "codegen": "mimic codegen",
     "compile": "mimic compile --task src/function.ts",
-    "test": "yarn compile && mimic test --skip-compile",
+    "test": "yarn build && mimic test --skip-compile",
     "lint": "eslint ."
   },
   "devDependencies": {
