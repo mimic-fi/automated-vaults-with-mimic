@@ -22,14 +22,17 @@
 ---
 
 ## Overview
+
 This repository demonstrates how to build automated DeFi vaults on Ethereum using Mimic as the execution and automation layer.
 
 In this example, vaults execute predefined strategies such as:
+
 - Periodic rebalancing
 - Yield optimization
 - Conditional execution based on market state
 
 The application does not implement:
+
 - Automation schedulers
 - Conditional execution engines
 - Multi-step transaction orchestration
@@ -38,12 +41,26 @@ The application does not implement:
 - RPC connections or oracle integrations
 
 Mimic handles execution by:
+
 - Triggering strategy execution based on defined conditions
 - Coordinating multi-step transactions
 - Managing retries and execution failures
 - Handling gas payment and transaction submission
 
 This allows vault implementations to focus on strategy definition while delegating automation and execution complexity to Mimic.
+
+
+## ⚠️ **Not production ready.** This is a reference/example implementation meant to show
+how the Mimic execution model works. It has **not** been audited, the strategy and its
+parameters are illustrative, and it must **not** be used with real funds.
+
+### Pending / known limitations
+-**Hardcoded trigger config.** The trigger scripts hardcode addresses (vault, settler,
+smart account, protocol contracts), IPFS CIDs (`taskCid`), event topics and versions.
+These must be parameterized (env/config) before any real deployment.
+
+-**Placeholder economic params.**`threshold`, `feeAmount` and `minValidations` are dev
+  placeholders (e.g. `1`) and need real tuning.
 
 ## Scope
 
