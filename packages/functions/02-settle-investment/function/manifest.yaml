@@ -17,7 +17,7 @@ inputs:
   
 abis:
   - ERC20: './abis/ERC20.json'
-  - Vault: './abis/lagoonVault.json'
+  - Vault: './abis/LagoonVault.json'
   - MorphoVault: "./abis/MorphoVault.json"
   - CUSDC: "./abis/CUSDC.json"
   - AavePool: "./abis/AavePool.json"

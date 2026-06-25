@@ -16,8 +16,8 @@ inputs:
   
 abis:
   - ERC20: './abis/ERC20.json'
-  - SanctionedList: './abis/sanctionedList.json'
-  - Vault: './abis/lagoonVault.json'
+  - SanctionedList: './abis/SanctionedList.json'
+  - Vault: './abis/LagoonVault.json'
   - MorphoVault: "./abis/MorphoVault.json"
   - CUSDC: "./abis/CUSDC.json"
   - AavePool: "./abis/AavePool.json"
