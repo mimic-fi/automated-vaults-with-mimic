@@ -1,0 +1,25 @@
+{
+  "name": "automated-vaults-with-mimic",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Automated DeFi vaults example with Mimic",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "lint": "yarn workspaces run lint",
+    "test": "yarn workspaces run test"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ],
+    "nohoist": [
+      "**/mocha",
+      "**/mocha/**"
+    ]
+  },
+  "resolutions": {
+    "@mimicprotocol/sdk": "0.0.1-rc.26",
+    "@mimicprotocol/runner-node": "0.0.1-rc.8"
+  }
+}

@@ -1,0 +1,23 @@
+version: 3.0.15
+
+name: safe-investment-rebalance-function
+description: safe-investment-rebalance-function
+inputs:
+  - chainId: uint32
+  - USDC: address # USDC
+  - smartAccount: address
+  - aUSDC: address
+  - aavePool: address
+  - morphoVault: address
+  - cUSDC: address
+  - threshold: uint256
+  - feeAmount: uint32
+  - subgraphId: string
+  
+  
+abis:
+  - ERC20: './abis/ERC20.json'
+  - Vault: './abis/lagoonVault.json'
+  - MorphoVault: "./abis/MorphoVault.json"
+  - CUSDC: "./abis/CUSDC.json"
+  - AavePool: "./abis/AavePool.json"
