@@ -1,0 +1,16 @@
+{
+  "name": "settle-redeem-task-event-trigger",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@mimicprotocol/sdk": "^0.0.1-rc.26"
+  },
+  "scripts": {
+    "deploy": "ts-node -r dotenv/config main.ts",
+    "build": "echo skip",
+    "test": "echo skip",
+    "lint": "eslint . || true"
+  }
+}

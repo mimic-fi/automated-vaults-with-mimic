@@ -1,0 +1,20 @@
+version: 1.0.9
+name: safe-divest-rebalance-task
+description: safe-divest-rebalance-task
+inputs:
+  
+  - aUSDC: address
+  - aavePool: address
+  - morphoVault: address
+  - cUSDC: address
+  - chainId: uint32
+  - USDC: address # Underlying asset
+  - smartAccount: address
+  - feeAmount: uint32
+  - subgraphId: string
+  
+abis:
+  - ERC20: './abis/ERC20.json'
+  - MorphoVault: "./abis/MorphoVault.json"
+  - CUSDC: "./abis/CUSDC.json"
+  - AavePool: "./abis/AavePool.json"

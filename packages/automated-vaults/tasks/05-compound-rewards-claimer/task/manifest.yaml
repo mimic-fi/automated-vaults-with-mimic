@@ -1,0 +1,14 @@
+version: 1.0.4
+name: Compound rewards claimer
+description: compound rewards claimer
+inputs:
+  - chainId: uint32
+  - cUSDC: address
+  - USDC: address
+  - smartAccount: address
+  - compoundToken: address
+  - feeAmount: uint32
+  - slippage: uint32
+
+abis:
+  - CommetRewards: "./abis/CommetRewards.json"

@@ -1,0 +1,23 @@
+version: 1.0.56
+name: Settle redeem
+description: Settle redeem
+inputs:
+  - chainAnalysisAddress: address  
+  - chainId: uint32
+  - smartAccount: address
+  - feeAmount: uint32
+  - vaultAddress: address
+  - USDC: address # Underlying asset
+  - aUSDC: address
+  - cUSDC: address
+  - morphoVault: address
+  - aavePool: address
+  - subgraphId: string 
+  
+abis:
+  - ERC20: './abis/ERC20.json'
+  - SanctionedList: './abis/sanctionedList.json'
+  - Vault: './abis/lagoonVault.json'
+  - MorphoVault: "./abis/MorphoVault.json"
+  - CUSDC: "./abis/CUSDC.json"
+  - AavePool: "./abis/AavePool.json"

@@ -1,0 +1,12 @@
+build
+types
+node_modules
+subgraph.yaml
+/src/permissions/dictionary.ts
+/abis/IAllTasksWithTokensSourceSetEvents.json
+*.log
+node_modules
+build/
+types/
+generated/
+subgraph.yaml

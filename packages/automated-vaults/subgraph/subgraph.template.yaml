@@ -1,0 +1,105 @@
+specVersion: 0.0.6
+schema:
+  file: ./schema.graphql
+
+dataSources:
+  - kind: ethereum/contract
+    name: AaveProtocolDataProvider
+    network: {{network}}
+    source:
+      address: "{{providerAddress}}"
+      abi: IAaveProtocolDataProvider
+      startBlock: {{startBlock}}
+    context:
+      aaveAsset:
+        type: String
+        data: "{{aaveAsset}}"
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Yield
+      abis:
+        - name: IAaveProtocolDataProvider
+          file: ./abis/IAaveProtocolDataProvider.json
+        - name: IErc20
+          file: ./abis/IErc20.json
+      blockHandlers:
+        - handler: handleBlockAave
+      eventHandlers: []
+      file: ./src/aaveYield.ts
+
+  - kind: ethereum/contract
+    name: CompoundComet
+    network: {{network}}
+    source:
+      address: "{{compoundAddress}}"
+      abi: ICompound
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Yield
+      abis:
+        - name: ICompound
+          file: ./abis/ICompound.json
+        - name: IErc20
+          file: ./abis/IErc20.json
+      blockHandlers:
+        - handler: handleBlockCompound
+      eventHandlers: []
+      file: ./src/compoundYield.ts
+
+  - kind: ethereum/contract
+    name: MorphoVault
+    network: {{network}}
+    source:
+      address: "{{morphoVaultAddress}}"
+      abi: IMorpho
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Yield
+      abis:
+        - name: IMorpho
+          file: ./abis/IMorpho.json
+        - name: IErc20
+          file: ./abis/IErc20.json
+      blockHandlers:
+        - handler: handleBlockMorpho
+      eventHandlers: []
+      file: ./src/morphoYield.ts
+
+  - kind: ethereum/contract
+    name: LagoonVault
+    network: {{network}}
+    source:
+      address: "{{lagoonVaultAddress}}"
+      abi: ILagoonVault
+      startBlock: {{startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - PendingRequest
+        - VaultTotal
+      abis:
+        - name: ILagoonVault
+          file: ./abis/ILagoonVault.json
+      eventHandlers:
+        - event: DepositRequest(indexed address,indexed address,indexed uint256,address,uint256)
+          handler: handleDepositRequest
+        - event: RedeemRequest(indexed address,indexed address,indexed uint256,address,uint256)
+          handler: handleRedeemRequest
+        - event: SettleDeposit(indexed uint40,indexed uint40,uint256,uint256,uint256,uint256)
+          handler: handleSettleDeposit
+        - event: SettleRedeem(indexed uint40,indexed uint40,uint256,uint256,uint256,uint256)
+          handler: handleSettleRedeem
+      file: ./src/vaultTotal.ts
