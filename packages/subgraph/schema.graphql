@@ -1,0 +1,40 @@
+type Yield @entity(immutable: false) {
+  id: ID!
+  symbol: String!
+
+  weeklyYieldAave: BigDecimal
+  annualPercentageRateAave: BigDecimal
+  lastUpdatedAave: BigInt
+
+  weeklyYieldCompound: BigDecimal
+  annualPercentageCompound: BigDecimal
+  lastUpdatedCompound: BigInt
+
+  weeklyYieldMorpho: BigDecimal
+  annualPercentageMorpho: BigDecimal
+  lastUpdatedMorpho: BigInt
+  lastPpsMorpho: BigDecimal
+  lastTimestampMorpho: BigInt
+}
+
+enum PendingKind {
+  DEPOSIT
+  REDEEM
+}
+
+type PendingRequest @entity(immutable: false) {
+  id: ID!
+  epoch: BigInt!
+  kind: PendingKind!
+  user: Bytes!
+  amount: BigInt!
+  blockNumber: BigInt!
+}
+
+type VaultTotal @entity(immutable: false) {
+  id: ID!
+  epoch: BigInt!
+  totalDeposit: BigInt!
+  totalRedeem: BigInt!
+  net: BigInt!
+}

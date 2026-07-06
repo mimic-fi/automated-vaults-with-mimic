@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  deploy-base:
+      name: Deploy Base
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+        - name: Set up environment
+          uses: ./.github/actions/setup
+        - name: Deploy Base
+          env:
+            VERSION_LABEL: ${{ github.sha }}
+            GRAPH_KEY: ${{ secrets.GRAPH_STUDIO_KEY }}
+          run: yarn deploy:base
+
+  deploy-mainnet:
+      name: Deploy Mainnet
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+        - name: Set up environment
+          uses: ./.github/actions/setup
+        - name: Deploy Mainnet
+          env:
+            GRAPH_KEY: ${{ secrets.GRAPH_STUDIO_KEY }}
+            VERSION_LABEL: ${{ github.sha }}
+          run: yarn deploy:mainnet
